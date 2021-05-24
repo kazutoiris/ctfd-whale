@@ -65,7 +65,6 @@ class AdminContainers(Resource):
 class UserContainers(Resource):
     @staticmethod
     @authed_only
-    @challenge_visible
     def get():
         user_id = current_user.get_current_user().id
         challenge_id = request.args.get('challenge_id')
@@ -89,7 +88,6 @@ class UserContainers(Resource):
 
     @staticmethod
     @authed_only
-    @challenge_visible
     @frequency_limited
     def post():
         user_id = current_user.get_current_user().id
@@ -110,7 +108,6 @@ class UserContainers(Resource):
 
     @staticmethod
     @authed_only
-    @challenge_visible
     @frequency_limited
     def patch():
         user_id = current_user.get_current_user().id
